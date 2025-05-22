@@ -4,13 +4,13 @@ final class MenuBarIconGenerator {
     
     static func generateIcon(
         text: String,
-        font: NSFont = .monospacedSystemFont(ofSize: 8, weight: .semibold)
+        font: NSFont = .systemFont(ofSize: 10, weight: .medium)
     ) -> NSImage {
         let image = NSImage(size: NSSize(width: 66, height: 22), flipped: false) { rect in
             
             let style = NSMutableParagraphStyle()
             style.alignment = .right
-//            style.maximumLineHeight = 10
+            style.maximumLineHeight = 10
 //            style.paragraphSpacing = -5
             
             let attributes: [NSAttributedString.Key: Any] = [
@@ -22,9 +22,9 @@ final class MenuBarIconGenerator {
             
             let textSize = text.size(withAttributes: attributes)
             let textRect = NSRect(
-                x: (rect.width - textSize.width) / 2,
-                y: (rect.height - textSize.height) / 2,
-                width: textSize.width,
+                x: /*(rect.width - textSize.width) / 2*/ 0,
+                y: (rect.height - textSize.height) / 2 - 1.5,
+                width: /*textSize.width*/ 66,
                 height: textSize.height
             )
             
